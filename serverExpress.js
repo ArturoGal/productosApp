@@ -91,12 +91,11 @@ app.route('/api/usuario/login')
 
 app.route('/api/usuario/logout')
     .post(validarToken, (req, res) => {
-        if (req.body.usuario && req.body.contra.length >= 6) {
+        if (req.body.usuario && req.body.contra) {
             let user = req.body;
             let usuario = usuarios.find(usr => usr.usuario === user.usuario);
             usuario.token = '';
             usuario.timeStamp = 0;
-
             fs.writeFileSync('usuarios.json', JSON.stringify(usuarios));
             res.json(user.usuario);
             res.status(200).send();
