@@ -91,13 +91,12 @@ app.route('/api/usuario/login')
 
 app.route('/api/usuario/logout')
     .post(validarToken, (req, res) => {
-        if (req.body.usuario && req.body.contra) {
-            let user = req.body;
-            let usuario = usuarios.find(usr => usr.usuario === user.usuario);
-            usuario.token = '';
-            usuario.timeStamp = 0;
+        let user = req.get('x-user');
+        let pos = usuarios.findIndex(usr => usr.usuario === user);
+        if (pos != -1) {
+            usuarios[pos].token = '';
+            usuarios[pos].timeStamp = 0;
             fs.writeFileSync('usuarios.json', JSON.stringify(usuarios));
-            res.json(user.usuario);
             res.status(200).send();
             return;
         }
@@ -151,15 +150,9 @@ function randomToken() {
 
 function validarToken(req, res, next) {
     let token = req.get('x-auth');
-    console.log(token);
     let user = req.get('x-user');
-    console.log(user);
     let pos = usuarios.findIndex(usr => usr.usuario === user);
-
-    console.log(Date.now());
-    console.log(usuarios[pos].timeStamp);
-    console.log(Date.now() - usuarios[pos].timeStamp);
-    if (pos == -1 || !usuarios[pos].token || usuarios[pos].timeStamp == 0 || Date.now() - usuarios[pos].timeStamp > 300000 || usuarios[pos].token != token) {
+    if (pos == -1 || usuarios[pos].timeStamp == 0 || Date.now() - usuarios[pos].timeStamp > 300000 || usuarios[pos].token != token) {
         res.status(401).send({
             error: "Sesión expirada"
         });
