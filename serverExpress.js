@@ -174,6 +174,7 @@ function log(req, res, next) {
     console.log("fecha: ", new Date(Date.now()).toString());
     console.log("content-type: ", req.get('Content-Type'));
     console.log("x-auth: ", req.get('x-auth'));
+    console.log("request: ", req.body);
     next();
 
 }
