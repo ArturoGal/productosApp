@@ -1,0 +1,57 @@
+[{
+    "id": 0,
+    "nombre": "Carbon x1",
+    "marca": "Lenovo",
+    "precio": 25000,
+    "descripcion": "RAM: 16Gb",
+    "existencia": 6
+}, {
+    "id": 1,
+    "nombre": "Yoga",
+    "marca": "Lenovo",
+    "precio": 16000,
+    "descripcion": "RAM: 8Gb",
+    "existencia": 2
+}, {
+    "id": 2,
+    "nombre": "Spectre",
+    "marca": "HP",
+    "precio": 19000,
+    "descripcion": "RAM: 16Gb",
+    "existencia": 1
+}, {
+    "id": 3,
+    "nombre": "MacBook",
+    "marca": "Apple",
+    "precio": 30000,
+    "descripcion": "RAM: 8Gb",
+    "existencia": 9
+}, {
+    "id": 4,
+    "nombre": "Inspiron",
+    "marca": "DELL",
+    "precio": 21000,
+    "descripcion": "RAM: 16Gb",
+    "existencia": 4
+}, {
+    "nombre": "Ideapad",
+    "marca": "Lenovo",
+    "precio": 22000,
+    "descripcion": "RAM: 12Gb",
+    "existencia": 7,
+    "id": 5
+}, {
+    "nombre": "Pavilion",
+    "marca": "HP",
+    "precio": 18000,
+    "descripcion": "RAM: 16Gb",
+    "existencia": 4,
+    "id": 6
+}, {
+    "nombre": "Satelite",
+    "marca": "Toshiba",
+    "precio": 17000,
+    "descripcion": "RAM: 8Gb",
+    "existencia": 2,
+    "id": 7
+}]
